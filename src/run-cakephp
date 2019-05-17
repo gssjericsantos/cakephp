@@ -1,0 +1,12 @@
+#!/bin/bash
+echo -e "
+----------------------------------------------------
+"
+pwd
+docker run --name cakephp -it -d cakephp install
+cd ..
+composer create-project --prefer-dist cakephp/app MyApp
+cd..
+
+sudo chmod +x MyApp/bin/cake
+MyApp/bin/cake server
